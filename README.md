@@ -6,7 +6,7 @@ Textpattern.tmbundle is a TextMate 2 language bundle for [Textpattern CMS](https
 
 This bundle was [originally created by Marios Butner in 2007](https://web.archive.org/web/20070627014758/http://www.consking.com/article/txp-bundle-version-07) for TextMate 1. It mostly functions in TextMate 2, but needs modernizing against changes made in both TextMate and Textpattern.
 
-@wion has resurfaced the bundle, with Butner's permission (who is currently not on GitHub), as a viable tool option for those who use Textpattern and wish to develop Textpattern theme packages in TextMate. Butner has said he does not support the bundle anymore, so as far as this repository's owner is concerned, this bundle is in the care of the "Textpattern project":https://github.com/textpattern, for which is was created; while recognizing that Butner may like to be the repo maintainer, whether by his own account or under that of Txp on GitHub.
+Wion has resurfaced the bundle, with Butner's permission (who is currently not on GitHub), as a viable tool option for those who use Textpattern and wish to develop Textpattern theme packages in TextMate. Butner has said he does not support the bundle anymore, but an allowance is made that he might change his mind. So as far as this repository's owner is concerned, the bundle is in the care of the Textpattern project, for which is was created, while recognizing that Butner may like to be the repo maintainer in the future, whether by his own account or under that of the [Textpattern project on GitHub](https://github.com/textpattern).
 
 # Objectives
 
@@ -14,21 +14,21 @@ Immediate objectives are to test the bundle as it exists and start getting [Issu
 
 # Installation
 
-The textpattern.tmbundle must be installed in the /Bundles directory at:
+For the textpattern.tmbundle to work in your TextMate installation, the bundle must be added to the /Bundles directory at:
 
 ```
 ~/Library/Application\ Support/TextMate/Bundles
 ```
 
-If you don’t want the bundle under version control, then download the bundle zip, unpack it, and move that into the directory. Then change as you like.
+That is all. Open TextMate and find the **Textpattern** bundle available under the Bundles menu, in the bundles editor list, and in the bundle selector options at bottom of window chrome.
 
-Alternatively, if you want the bundle reflecting the latest changes made here, clone this repository to:
+**Clone, fork, or zip?**
 
-```
-~/Library/Application\ Support/TextMate/Bundles/textpattern.tmbundles
-```
+Download the bundle zip package if you want to use the bundle independently of version control (or want to use something other than GitHub).
 
-Likewise, you can always fork off! 
+Fork this repository if you want independence _and_ GitHub version control.
+
+Clone this repository if you are happy with the collective changes collaborators make here.
 
 # License
 
