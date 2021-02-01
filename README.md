@@ -22,7 +22,9 @@ For the textpattern.tmbundle to work in your TextMate installation, the bundle m
 ~/Library/Application\ Support/TextMate/Bundles
 ```
 
-That is all. Open TextMate and find the **Textpattern** bundle available under the Bundles menu, in the bundles editor list, and in the bundle selector options at bottom of window chrome.
+That is all.
+
+Once done, open TextMate and find the **Textpattern** bundle available under the Bundles menu, in the bundles editor list, and in the bundle selector options at bottom of window chrome.
 
 **Clone, fork, or zip?**
 
