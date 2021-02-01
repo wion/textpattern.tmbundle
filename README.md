@@ -8,7 +8,7 @@ This bundle was originally created by [4Blubot](https://github.com/4Blubot) in [
 
 Wion has resurfaced the bundle, with 4Blubot's permission, as a viable tool option for those who use Textpattern and wish to develop Textpattern theme packages in TextMate. 4Blubot has expressed disinterest in supporting the bundle for the time being, but an allowance is made in the event that might change.
 
-So as far as this repository's owner is concerned, the bundle is in the care of the Textpattern project, for which is was created, while recognizing that 4blubot may like to be the repo maintainer in the future, whether on own account or under that of the [Textpattern project on GitHub](https://github.com/textpattern).
+So as far as this repository's owner is concerned, the bundle is in the care of the Textpattern project, for which it was created, while recognizing that 4blubot may like to be the repo maintainer in the future, whether on own account or under that of the [Textpattern project on GitHub](https://github.com/textpattern).
 
 # Objectives
 
