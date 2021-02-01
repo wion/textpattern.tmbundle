@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Misc Form Completions </string>
+	<key>scope</key>
+	<string>text.html.txp meta.tag.single.output_form.txp  string.quoted.double</string>
+	<key>settings</key>
+	<dict>
+		<key>completionCommand</key>
+		<string>find "$TM_DIRECTORY/../forms" -name "$TM_CURRENT_WORD*misc.txfml" -exec basename "{}" \;|sort</string>
+		<key>disableDefaultCompletion</key>
+		<string>1</string>
+	</dict>
+	<key>uuid</key>
+	<string>A0E655EF-D1CF-41AB-9390-1BAC94DCA74F</string>
+</dict>
+</plist>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>name="${1:value}"</string>
+	<key>name</key>
+	<string>Attribute Name</string>
+	<key>scope</key>
+	<string>text.html.txp meta.tag.container.if_article_author.txp, text.html.txp meta.tag.container.if_article_category.txp, text.html.txp meta.tag.container.if_article_section.txp, text.html.txp meta.tag.container.if_author.txp, text.html.txp meta.tag.container.if_custom_field.txp, text.html.txp meta.tag.container.if_category.txp, text.html.txp meta.tag.container.if_plugin.txp, text.html.txp meta.tag.container.if_section.txp, text.html.txp meta.tag.single.section.txp, text.html.txp meta.tag.single.category.txp, text.html.txp meta.tag.single.custom_field.txp, text.html.txp meta.tag.single.image.txp, text.html.txp meta.tag.single.thumbnail.txp</string>
+	<key>tabTrigger</key>
+	<string>n</string>
+	<key>uuid</key>
+	<string>9893CA6A-6D34-4853-9BAD-3E329C0BD2E6</string>
+</dict>
+</plist>

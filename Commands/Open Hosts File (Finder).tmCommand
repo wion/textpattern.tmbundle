@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#Opens your hosts file, in case you want to set up some more test URL's.
+open -a textmate /etc/hosts</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^O</string>
+	<key>name</key>
+	<string>Open Hosts File (Finder)</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>DEAF8423-955B-40DE-BC5F-91A85FE7D482</string>
+</dict>
+</plist>

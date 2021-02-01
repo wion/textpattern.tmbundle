@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>sed 's/^/&lt;txp:$1${2: ${3:name="${4:a}"}}$5&gt; /' | sed 's/$/\
+&lt;\/txp:$1&gt;/'</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^@W</string>
+	<key>name</key>
+	<string>Wrap each Selected Line with Tags and Return</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>01BF1C02-21EA-4C88-A8CF-5E067BB8625F</string>
+</dict>
+</plist>

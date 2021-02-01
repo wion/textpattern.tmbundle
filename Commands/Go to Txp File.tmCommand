@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#This command will find the correspondant form of a txp tag attribute if triggered on the proper scope and open it. 
+AFORM="`find "$TM_DIRECTORY/.." -name "$TM_CURRENT_WORD*.txfml" -exec basename "{}" \;|sort`"
+open  "$TM_DIRECTORY/../forms/$AFORM"
+
+
+
+
+
+
+
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@D</string>
+	<key>name</key>
+	<string>Go to Txp File</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>text.html.txp meta.tag</string>
+	<key>uuid</key>
+	<string>17ED0B65-7B61-45AC-BBAF-BAB562BDA6E9</string>
+</dict>
+</plist>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># Context-sensitive help lookup for Textpattern single tags.
+if grep &lt;&lt;&lt;${TM_CURRENT_WORD:-!} -Esq '[a-zA-Z0-9]+'
+	then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://textpattern.net/wiki/index.php?title=Txp:"$TM_CURRENT_WORD"_/'&gt;"
+	else echo "Place the caret on a tag name scope"
+fi
+
+</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>Help Single</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text.html.txp meta.tag.single, text.html.txp entity.single.tag</string>
+	<key>uuid</key>
+	<string>D4A16278-2164-477A-BF5F-08027B69AE98</string>
+</dict>
+</plist>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>beforeRunningScript</key>
+	<string>nop</string>
+	<key>captureFormatString</key>
+	<string>(1?$2:&lt;nop&gt;)</string>
+	<key>capturePattern</key>
+	<string>(^TM_(.*)$)?</string>
+	<key>command</key>
+	<string>#moved over as is from HTML here, yes, since it conflicts with Validate syntax. It was more uselfull in my scope here and a better solution, than to change the scope of the Command in the HTML Bundle.
+env|grep ^TM_|sort</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^V</string>
+	<key>name</key>
+	<string>Show TM Variables</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>standardInput</key>
+	<string>selectedText</string>
+	<key>standardOutput</key>
+	<string>separateWindow</string>
+	<key>uuid</key>
+	<string>720C202A-0FE9-4024-B0F9-6EC3C64A09E5</string>
+</dict>
+</plist>

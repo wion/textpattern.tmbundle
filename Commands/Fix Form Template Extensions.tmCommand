@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+#This will rename your form template files to the proper extensions, provided that the form type delimiter is eg.: _comments is already prepended in the given file names.Doesn't work with whitespace or -comment or ()comment.There are better ways to do this, however I just through this togaether as a quick and dirty solution adapting a suggestion of Deirdre posted at the macoshints Site.
+echo "Renaming comment forms"
+ls *comment.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_comment/\.comment/2'
+ls *comment.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_comment/\.comment/2' | /bin/sh
+echo "done"
+echo "------------------------------------------------"
+echo "Renaming article forms"
+ls *article.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_article/\.article/2'
+ls *article.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_article/\.article/2' | /bin/sh
+echo "done"
+echo "---------------------------------------------------"
+echo "Renaming file forms"
+ls *file.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_file/\.file/2'
+ls *file.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_file/\.file/2' | /bin/sh
+echo "done"
+echo "----------------------------------------------------"
+echo "Renaming link forms"
+ls *link.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_link/\.link/2'
+ls *link.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_link/\.link/2' | /bin/sh
+echo "done"
+echo "----------------------------------------------------"
+echo "Renaming misc forms"
+ls *misc.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_misc/\.misc/2'
+ls *misc.txfml | awk '{print("mv "$1" "$1)}' | sed 's/_misc/\.misc/2' | /bin/sh
+echo "done"
+rescan_project 
+
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^L</string>
+	<key>name</key>
+	<string>Fix Form Template Extensions</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>E1FFA649-66A8-4E53-8EEA-83ED24882B95</string>
+</dict>
+</plist>

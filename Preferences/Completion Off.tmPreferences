@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Completion Off</string>
+	<key>scope</key>
+	<string>text.html.txp string.quoted.double.html.strict</string>
+	<key>settings</key>
+	<dict>
+		<key>disableDefaultCompletion</key>
+		<string>0</string>
+	</dict>
+	<key>uuid</key>
+	<string>5E0BCCE7-0F26-48A8-8E68-19C8234272E0</string>
+</dict>
+</plist>

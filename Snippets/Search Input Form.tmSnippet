@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;txp:search_input label="Search" button="Search" size="15" wraptag="p" /&gt;</string>
+	<key>name</key>
+	<string>Search Input Form</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>tabTrigger</key>
+	<string>search</string>
+	<key>uuid</key>
+	<string>96F95538-7F0B-4EC7-A6AA-43F0AE99EDBC</string>
+</dict>
+</plist>

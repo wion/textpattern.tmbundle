@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#This command relies on the existence of the following naming convention for article body file and Folder names: /section/«id».«title».txaml
+#It also assumes, that each article, that has a section assigned is present in a folder named with the name of that section. Those article folders are present in a Folder named articles inside the _templates Folder.
+#EXAMPLE: /article/54.my-test-article.txaml
+#Furthermore it uses a static Project variable $TM_PERMLINK_MODE that supports currently 2 values: section/title and section/id/title.
+#If this variable is not set up, then the cammand inserts an error message in the document window.
+base="${TM_DROPPED_FILEPATH%.*}"
+file="${TM_DROPPED_FILEPATH##/*/}"
+filename="${file#*.*}"
+#echo "$filename" Retain Filename with extension
+#echo "-------------------------"
+id=`echo $TM_DROPPED_FILE | perl -pe 's/^(.*\/)?(.*?)(\..*)?$/$2/g'`
+#echo "$id"                    Retain Article ID
+#echo "--------------------------"
+ext="${filename%*.*}"
+title="${ext#*.*}" 
+#echo "$title"                 Retain Title
+#echo "-----------------------------"
+
+ext2="${filename#*.*}"
+#echo "$ext2"                  Retain File extension
+#echo "--------------------------------"
+
+prettytitle=$(echo ${title} | tr "-" " ");
+#echo "$prettytitle"           Transform Hyphens to whitespace in Title
+#echo "---------------------------"
+
+#uppertitle=`echo $prettytitle | tr 'a-z' 'A-Z'`
+#echo "$uppertitle" Uppercase title
+
+#echo "-------------------------"
+upper_case ()                #  Capitalizes initial character
+{                            #+ of argument string(s) passed.
+
+  string0="$@"               # Accepts multiple arguments.
+
+  firstchar=${string0:0:1}   # First character.
+  string1=${string0:1}       # Rest of string(s).
+
+  FirstChar=`echo "$firstchar" | tr a-z A-Z`
+
+
+  echo "$FirstChar$string1"  # Output to stdout.
+}
+
+Uppertitle=`upper_case "$prettytitle"`
+#echo "$Uppertitle"           #Retain Titlecased Title
+#echo
+#echo
+#echo
+#echo "------------------------------------"
+default="article"
+folder1=`echo $TM_DROPPED_FILE | perl -pe 's/^(\.*\/)?(\w+)(.*?)(\/\.*)?$/$2/g'`
+folder2=`echo $TM_DROPPED_FILEPATH | perl -pe 's/(.*)?(\/)(\w+)(\/)([\d+]+)(\.)(.*)$/$3/g'`
+DIR=`echo $TM_DIRECTORY | perl -pe 's/^(\/.*\/)*(\w*?)$/$2/g'`
+section1="${folder1:-$default}"
+section2="${folder2:-$default}"
+#This works better, than the sometimes unreliable replacement pattern vodoo.
+#Retain section name from Article/Section Folder name
+#echo "--------------------------------------"
+if [[ $folder2 == $DIR  ]];then
+		if [[ $TM_PERMLINK_MODE = "section/id/title" ]]; then
+		echo -n "&lt;a href=\"$TM_REMOTE_URL/$section2/$id/$title/\" id=\"nr${id}\" title=\"\${1:$tid}\"&gt;\${1:$Uppertitle}&lt;/a&gt;"
+		elif [[ $TM_PERMLINK_MODE = "section/title" ]]; then
+		echo -n "&lt;a href=\"$TM_REMOTE_URL/$section2/$title/\" id=\"nr${id}\" title=\"\${1:$tid}\"&gt;\${1:$Uppertitle}&lt;/a&gt;"
+		else echo -n "WARNING: A static variable called TM_PERMLINK_MODE 
+		is currently not set up in your Project.
+		Available values are :
+		1) section/title   and
+		2) section/id/title
+
+	Consult the TextMate Manual for setup instructions."
+	fi
+	else
+		if [[ $TM_PERMLINK_MODE = "section/id/title" ]]; then
+		echo -n "&lt;a href=\"$TM_REMOTE_URL/$section1/$id/$title/\" id=\"nr${id}\" title=\"\${1:$tid}\"&gt;\${1:$Uppertitle}&lt;/a&gt;"
+		elif [[ $TM_PERMLINK_MODE = "section/title" ]]; then
+		echo -n "&lt;a href=\"$TM_REMOTE_URL/$section1/$title/\" id=\"nr${id}\" title=\"\${1:$tid}\"&gt;\${1:$Uppertitle}&lt;/a&gt;"
+		else echo -n "WARNING: A static variable called TM_PERMLINK_MODE 
+		is currently not set up in your Project.
+		Available values are :
+		1) section/title   and
+		2) section/id/title
+
+	Consult the TextMate Manual for setup instructions."
+	fi
+fi
+
+
+</string>
+	<key>draggedFileExtensions</key>
+	<array>
+		<string>txaml</string>
+	</array>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Insert Article Anchor (Experimental)</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>E41587A4-8C76-45D7-A576-52BE489FF9F4</string>
+</dict>
+</plist>

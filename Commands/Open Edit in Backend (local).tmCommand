@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>filename="${TM_FILEPATH/%.*/}"
+filebase="${filename##*/}"
+file="${filebase:-${TM_FILENAME##/}}"
+dir="${TM_DIRECTORY##*/}"
+if [ "$dir" = "forms" ]; then
+# Context-sensitive form lookup for Textpattern form files.
+if grep &lt;&lt;&lt;${file:-!} -Esq '[a-zA-Z0-9]+'
+	then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://$TM_LOCAL_URL/textpattern/index.php?event=form&amp;step=form_edit&amp;name="$file"'&gt;"
+	else echo "couldn't retrieve URL."
+fi
+fi
+if [ "$dir" = "pages" ]; then
+if grep &lt;&lt;&lt;${file:-!} -Esq '[a-zA-Z0-9]+'
+	then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://$TM_LOCAL_URL/textpattern/index.php?event=page&amp;name="$file"'&gt;"
+	else echo "couldn't retrieve URL."
+fi
+fi
+if [ "$dir" = "css" ]; then
+if grep &lt;&lt;&lt;${file:-!} -Esq '[a-zA-Z0-9]+'
+	then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://$TM_LOCAL_URL/textpattern/index.php?event=css&amp;name="$file"'&gt;"
+	else echo "couldn't retrieve URL."
+fi
+fi
+if [ "$dir" = "articles" ]; then
+if grep &lt;&lt;&lt;${file:-!} -Esq '[a-zA-Z0-9]+'
+	then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://$TM_LOCAL_URL/textpattern/index.php?event=article&amp;name="$file"'&gt;"
+	else echo "couldn't retrieve URL."
+fi
+fi
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^O</string>
+	<key>name</key>
+	<string>Open Edit in Backend (local)</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>A121D07C-6B94-4D3E-B107-E724ECB9B148</string>
+</dict>
+</plist>

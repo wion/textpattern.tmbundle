@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+FORMS="${TM_DIRECTORY##*/}"
+TARDIR1="forms"
+TARDIR2="pages"
+if [[ "$FORMS"  =  "$TARDIR1" ]];
+	then
+	
+	ls *.html | awk '{print("mv "$1" "$1)}' | sed 's/.html/\.txfml/2'
+	ls *.html | awk '{print("mv "$1" "$1)}' | sed 's/.html/\.txfml/2' | /bin/sh
+ls *.txt | awk '{print("mv "$1" "$1)}' | sed 's/.txt/\.txfml/2'
+	ls *.txt | awk '{print("mv "$1" "$1)}' | sed 's/.txt/\.txfml/2' | /bin/sh
+	
+	echo -n "
+---------------------------------------------
+Done.
+---------------------------------------------
+File extensions adapted. This may not directly be visible in your project Drawer,
+however the original files on disk have been changed."
+elif [[ "$FORMS"  !=  "$TARDIR2" ]]; then
+	
+	echo -n "To fix the file extensions for Page templates, 
+	select a file in the forms Folder in your Project Drawer before running this command.
+	The Folder name for Forms MUST be forms (lowercase)
+	"
+	echo "-------------------------------------"
+fi
+if [[ "$FORMS"  =  "$TARDIR2" ]];
+	then
+	ls *.html | awk '{print("mv "$1" "$1)}' | sed 's/.html/\.txpml/2'
+    ls *.html | awk '{print("mv "$1" "$1)}' | sed 's/.html/\.txpml/2' | /bin/sh
+	ls *.txt | awk '{print("mv "$1" "$1)}' | sed 's/.txt/\.txpml/2'
+    ls *.txt | awk '{print("mv "$1" "$1)}' | sed 's/.txt/\.txpml/2' | /bin/sh
+	echo -n "
+--------------------------------------------
+Done.
+--------------------------------------------
+File extensions adapted. This may not directly be visible in your project Drawer,
+however the original files on disk have been changed."
+elif [[ "$FORMS"  !=  "$TARDIR1" ]]; then
+	
+	echo -n "To fix the file extensions for Form templates,
+	select a file in the pages Folder in your Project Drawer before running this command.
+	The Folder name for Page templates MUST be pages (lowercase)
+	"
+	echo "---------------------------------------"
+fi
+rescan_project </string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^L</string>
+	<key>name</key>
+	<string>Fix File Extensions</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>679B37F1-351E-4983-A32D-1A3DEBC37DAF</string>
+</dict>
+</plist>

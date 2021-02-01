@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#Query the length of the document filename, do the offset math and retain extension
+cpref="${#TM_FILENAME}" 
+offset=`expr $cpref - 5`
+fext="${TM_FILENAME:`echo $offset`}"
+#echo $fext
+#Query the length of the dropped filename, do the offset math and retain extension
+cpref="${#TM_DROPPED_FILE}" 
+offset=`expr $cpref - 5`
+dext="${TM_DROPPED_FILE:`echo $offset`}"
+#Query the length of the dropped filename, do the offset math in case of a text file and retain extension
+cpref="${#TM_DROPPED_FILE}" 
+offset2=`expr $cpref - 3`
+text="${TM_DROPPED_FILE:`echo $offset2`}"
+#echo $text
+
+#Extract the form name for the tag attribute
+base="${TM_DROPPED_FILEPATH/%.*/}"
+title="${base##*/}"
+file="${TM_DROPPED_FILEPATH##*/}"
+
+#Now do the actual comparison and decide what to do
+#If everything ok, then insert the article tag
+#If not, then have the Warnings ready.
+if [[ $dext = "txfml" &amp;&amp; $fext = "txpml" ]]
+	 then echo -n "&lt;txp:article form=\"$title\" listform=\"\${1:listform_name}\" /&gt;"
+else
+	if [[ $dext == "txfml" &amp;&amp;  $fext != "txpml" ]]; then
+		echo -n "\${1:WARNING:Wrong context.
+Article Form valid only in a page Template.}"
+
+	fi
+		if [[ $text == "txt" ]]; then
+			echo -n "\${1:WARNING: Wrong File extension.
+	Text File extensions are not supported by this command.
+	Consult the Bundle Manual for Details.}"
+		fi
+
+fi
+
+</string>
+	<key>draggedFileExtensions</key>
+	<array>
+		<string>txfml</string>
+		<string>txt</string>
+	</array>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Insert Article Form Tag (Experimental)</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>0CFA9E62-F81D-4A15-A6A2-0820EA45746E</string>
+</dict>
+</plist>

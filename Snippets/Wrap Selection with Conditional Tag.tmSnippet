@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;txp:${1:if_custom_field} ${2:name}="${3:name}" ${4:val}="${5:value}"&gt;
+	${6:${TM_SELECTED_TEXT:${TM_CURRENT_WORD}}}
+&lt;/txp:$1&gt;$0
+</string>
+	<key>keyEquivalent</key>
+	<string>^W</string>
+	<key>name</key>
+	<string>Wrap Selection with Conditional Tag</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>A01485E3-D505-4619-BCFD-70845DAE4033</string>
+</dict>
+</plist>

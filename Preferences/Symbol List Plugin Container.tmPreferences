@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List Plugin Container</string>
+	<key>scope</key>
+	<string> text.html.txp entity.name.tag.container.plugin -meta.tag.html.strict</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+		s/^(.*)txp:/TXP    Plugin Container /;  #get rid of those prefixes
+			       s/&gt;/ /;                  #get rid of those end brackets
+
+	</string>
+	</dict>
+	<key>uuid</key>
+	<string>F01845C2-AFE4-4AB5-96A1-1E7FBAB6654D</string>
+</dict>
+</plist>

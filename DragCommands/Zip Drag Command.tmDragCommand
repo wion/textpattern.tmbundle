@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>bundleUUID</key>
+	<string>EFD323D2-5CF9-4E10-9A8F-9AF2294BB1D0</string>
+	<key>command</key>
+	<string>#You have to set up the two Shell variables $TM_REMOTE_URL and $TM_LOCAL_URL, if you want the SHIFT modifier behavior to work.
+#If none of those is set up in your prefs, then the base URL will fall back to example.com as a tab stop variable, where you can then insert an alternate base URL value.
+base="${TM_DROPPED_FILEPATH/%.*/}"
+title="${base##*/}"
+filetype=" Download"
+url2="www.example.com"
+url1="${TM_REMOTE_URL:-$url2}"
+url="${TM_LOCAL_URL:-$url2}"
+if [[ "$TM_MODIFIER_FLAGS" = *SHIFT* ]]
+        then BASE="$url1"
+        else BASE="$url"
+fi
+echo "&lt;a href=\"http://\${1:$BASE}/file_download/\${2:file_id}\" title=\"\${3:$title\${4:$filetype}}\"&gt;\${3:$title\${4:$filetype}}&lt;/a&gt;
+"
+</string>
+	<key>draggedFileExtensions</key>
+	<array>
+		<string>zip</string>
+	</array>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Zip Drag Command</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>F5715C9D-6461-4D93-8686-32A944F10C08</string>
+</dict>
+</plist>

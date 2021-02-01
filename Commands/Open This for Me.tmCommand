@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>cat &lt;&lt;END_HEAD_HTML
+&lt;html&gt;&lt;head&gt;
+	&lt;title&gt;Basckend Quick Access&lt;/title&gt;
+	&lt;style type="text/css" media="screen"&gt;
+	/* &lt;![CDATA[ */
+		* {list-style-type: none;
+			}
+		body {background-color: #CDC788;
+		 	  border: 1px solid #888;
+			padding: 20px;
+			}
+			.local, .remote {padding:20px 0;}
+	/* ]]&gt; */
+	&lt;/style&gt;
+	
+&lt;/head&gt;&lt;body&gt;
+  &lt;h1&gt;Open This For Me&lt;/h1&gt;
+  &lt;ul&gt;
+END_HEAD_HTML
+remote="&lt;h3&gt;Backend URL&lt;/h3&gt;
+&lt;div class="local"&gt;&lt;ul&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php&gt;Article Write&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=image&gt;Images local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=page&gt;Pages local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=form&gt;Forms local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=css&gt;Styles local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=section&gt;Sections local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=category&gt;Categories local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=file&gt;Files local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=link&gt;Links local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=list&gt;Articles local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=mcw_templates&gt;Update Templates local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=plugin&gt;Plugins local&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=prefs&gt;Prefs local&lt;/li&gt;
+
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php?event=http://sundrivedesign2.dev/textpattern/index.php?event=prefs&amp;step=advanced_prefs
+&gt;Advanced Prefs local&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+  &lt;div class="remote"&gt;&lt;ul&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php&gt;Article Write remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=image&gt;Images remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=page&gt;Pages remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=form&gt;Forms remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=css&gt;Styles remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=section&gt;Sections remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=category&gt;Categories remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=file&gt;Files remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=link&gt;Links remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=list&gt;Articles remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=mcw_templates&gt;Update Templates remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=plugin&gt;Plugins remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=prefs&gt;Prefs remote&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php?event=http://sundrivedesign2.dev/textpattern/index.php?event=prefs&amp;step=advanced_prefs
+&gt;Advanced Prefs remote&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+"
+echo "$remote"
+cat &lt;&lt;END_FOOT_HTML
+  &lt;/ul&gt;
+&lt;/body&gt;&lt;/html&gt;
+END_FOOT_HTML
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^O</string>
+	<key>name</key>
+	<string>Open This for Me</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>734F5DC9-4196-495A-8F5D-ABA4700E7E9D</string>
+</dict>
+</plist>

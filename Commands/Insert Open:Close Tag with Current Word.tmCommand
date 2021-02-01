@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+txp_single_no_arg = /^(?:sitename|site_slogan|site_url|article_id|body|comment_anchor|comment_email_input|comment_id|comment_email|comment_message_input|comment_message|comment_name_input|comment_name|comment_preview|comment_remember|comment_submit|comment_web|comment_web_input|comments_count|comments_help|else|excerpt|file_download_category|file_download_description|file_download_downloads|file_download_id|file_download_name|keywords|lang|link_description|link_url|meta_keywords|meta_author|next_title|prev_title|search_result_date|search_result_title|search_result_url|txp_die)$/i
+txp_single        = /^(?:article|article_image|article_custom|author|breadcrumb|category|category_list|category1|category2|comment_time|comments|comments_error|comments_form|comments_invite|comments_preview|custom_field|css|email|error_message|error_statusfeed_link|file_download|file_download_created|file_download_list|file_download_modified|file_download_size|image|image_display|image_index|link|link_category|link_date|link_feed_link|link_name|linkdesctitle|linklist|output_form|page_title|password_protect|popup|posted|recent_articles|recent_comments|related_articles|search_input|search_result_count|search_result_excerpt|section|section_list|text|thumbnail|title|img|meta|link)$/i
+txp_double = /^(?:comment_permlink|file_download_link|if_article_author|if_article_category|if_article_id|if_article_list|if_article_section|if_author|if_category|if_comments|if_comments_allowed|if_comments_disallowed|if_comments_error|if_comments_preview|if_custom_field|if_different|if_excerpt|if_first_article|if_individual_article|if_last_article|if_plugin|if_search|if_section|if_status|link_to_home|link_to_next|link_to_prev|newer|older|permlink|php)$/i
+txp_special =
+/^(?:permlinks)$/i
+single_no_arg = /^(?:br|hr)$/i
+single        = /^(?:img|meta|link|input|base|area|col|frame|param)$/i
+print case tag = STDIN.read
+   when single_no_arg: "&lt;#{tag} /&gt;"
+   when single:        "&lt;#{tag} $1/&gt;"
+   when txp_single_no_arg then "&lt;txp:#{tag} /&gt;$1"
+   when txp_single then        "&lt;txp:#{tag} $1/&gt;$2"
+   when txp_double  then       "&lt;txp:#{tag}$1&gt;$2&lt;/txp:#{tag.strip[/^\S+/]}&gt;$3"
+   when txp_special  then      "&lt;txp:permlink /&gt;$1"
+   when '' then            "&lt;${1:p}&gt;$2&lt;/${1/\\s.*//}&gt;$3"
+   else                "&lt;#{tag}&gt;$1&lt;/#{tag.strip[/^\S+/]}&gt;$3"
+end</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^&lt;</string>
+	<key>name</key>
+	<string>Insert Open/Close Tag with Current Word</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>2904C89C-D249-435D-8373-D0D7AF25F7B8</string>
+</dict>
+</plist>

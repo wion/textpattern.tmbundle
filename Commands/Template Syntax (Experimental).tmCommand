@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>echo "$TM_CURRENT_WORD"
+#Don't use this command. It is completely broken, some weird things are going on with TM_CURRENT_LINE and TM_CURRENT_WORD
+# Experimental Template Syntax command. However this doesn't make a lot of sense, since it is not possible to set multiple tag triggers per commmand.
+FILE="${TM_FILENAME/%.*/}"
+base="${TM_FILEPATH##/*/}"
+type="${base#*.*}"
+ext="${type#*.*}"
+if [[ $ext = "txfml" ]]
+	 then
+	echo "\$1$TM_CURRENT_WORD
+	\$2
+$TM_CURRENT_WORD
+\$3"
+	else
+	exit_insert_snippet "\${1:Warning: Wrong syntax. This tag is only allowed within a form template.}"
+fi
+</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Template Syntax (Experimental)</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp
+meta.tag.container.if_article_category.txp
+meta.tag.container.endbracket.txp
+</string>
+	<key>uuid</key>
+	<string>354044B7-B59D-46F9-A9FD-65A2BAB46C47</string>
+</dict>
+</plist>

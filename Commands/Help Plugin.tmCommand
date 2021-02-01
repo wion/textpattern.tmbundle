@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># Context-sensitive help lookup for Textpattern plugin tags.
+# Place the caret on the name part of the plugin tag, to retrieve the Syntac Help page of your backend
+#You may want to change the variable TM_REMOTE_URL to TM_LOCAL_URL, if you wish so.
+#Place the caret on the three character creator index, to retrieve the according plugin page at textpattern.org
+#This command will fail sometimes.
+PLUGIN="${TM_CURRENT_WORD%_*}"
+docscope="text.html.txp"
+synscope="text.html.txp meta.tag.plugin.generic.txp entity.tag.plugin entity.tag.plugin.name.txp"
+phelpscope="text.html.txp meta.tag.plugin.generic.txp entity.tag.plugin string.constant.creator-index.txp"
+if [[ "$TM_SCOPE" = "$synscope" ]]; then
+	if grep &lt;&lt;&lt;${TM_CURRENT_WORD:-!} -Esq '[a-zA-Z0-9]+'
+		then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://"$TM_REMOTE_URL"/textpattern/index.php?event=plugin&amp;step=plugin_help&amp;name="$TM_CURRENT_WORD"'&gt;"
+		else echo "Place the caret on a tag name scope"
+	fi
+	else 
+		if [[ "$TM_SCOPE" =  "$phelpscope"  ]]; then
+			if grep &lt;&lt;&lt;${TM_CURRENT_WORD:-!} -Esq '[a-zA-Z0-9]+'
+				then exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=http://textpattern.org/plugins/?q=$TM_CURRENT_WORD'&gt;"
+				else echo "Place the caret on a tag name scope"
+			fi
+		fi
+fi
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>Help Plugin</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.html.txp meta.tag.plugin.generic.txp</string>
+	<key>uuid</key>
+	<string>74E8CA36-3CB8-4599-831C-CEAF64000FCA</string>
+</dict>
+</plist>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Comment Form Completions </string>
+	<key>scope</key>
+	<string>text.html.txp meta.tag.single.comments.txp, meta.tag.single.comments_form.txp,meta.tag.single.comments_preview.txp  string.quoted.double</string>
+	<key>settings</key>
+	<dict>
+		<key>completionCommand</key>
+		<string>find "$TM_DIRECTORY/../forms" -name "$TM_CURRENT_WORD*comment.txfml" -exec basename "{}" \;|sort</string>
+		<key>disableDefaultCompletion</key>
+		<string>1</string>
+	</dict>
+	<key>uuid</key>
+	<string>6808F05C-053F-483E-A0CB-8D99931FAB57</string>
+</dict>
+</plist>

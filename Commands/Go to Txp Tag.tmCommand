@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># Modified Code from James Edward Gray's Code Examples
+# © 2006 Gray Productions
+echo "${TM_FILENAME/%.*/}" \
+| pbcopy -pboard find
+
+cat &lt;&lt;END_HEAD_HTML
+&lt;html&gt;&lt;head&gt;
+	&lt;title&gt;Returned Tag Results&lt;/title&gt;
+&lt;style type="text/css" media="screen"&gt;
+	/* &lt;![CDATA[ */
+		* {list-style-type: none;
+			}
+		body {background-color: #CDC788;
+		 	  border: 1px solid #888;
+			padding: 20px;
+			}
+			.local, .remote {padding:20px 0;}
+	/* ]]&gt; */
+	&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+  &lt;h1&gt;Currently Active Tags&lt;/h1&gt;
+  &lt;ul&gt;
+END_HEAD_HTML
+
+LINK='&lt;li&gt;&lt;a href="txmt:\/\/open?line=\1\&amp;url=file:\/\/\1"&gt;\3&lt;\a&gt;&lt;\/li&gt;'
+sibling=${TM_DIRECTORY/%forms/pages}
+find "$sibling"   \
+     \( -name "*.txpml" \)           \
+| xargs grep -n `pbpaste -pboard find`          \
+| sed -E 's/^(\/?([^:\/]+\/)+([^:]+)):([0-9]+):.+$/'"$LINK"'/'\
+
+cat &lt;&lt;END_FOOT_HTML
+  &lt;/ul&gt;
+&lt;/body&gt;&lt;/html&gt;
+END_FOOT_HTML</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@D</string>
+	<key>name</key>
+	<string>Go to Txp Tag</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text.html.txp </string>
+	<key>uuid</key>
+	<string>C68133E3-47F5-40BF-AC3C-00CAEDE823F9</string>
+</dict>
+</plist>

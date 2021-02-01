@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#courtesy Allan Odgaard
+#NOTE: The file must be selected in your Project drawer, if you want this to duplicate the file inside the project
+# so we can work with relative paths
+cd "$TM_DIRECTORY"
+
+# construct a default name for the duplicate
+def_name=`perl -pe &lt;&lt;&lt;"$TM_FILENAME" 's/^(.*?)(\.[^.]*)?$/$1 copy$2/'`
+
+# prompt user for a name
+CocoaDialog inputbox --text "$def_name" --button1 "Duplicate" --button2 "Cancel"|{
+
+    # if user selected 'Duplicate' and file doesn't exist
+    read res; read new_name;
+    if [[ "$res" == "1" &amp;&amp; ! -e "$new_name" ]]; then
+
+       # do the actual duplication
+       cp -p "$TM_FILENAME" "$new_name"
+
+       # force TM to refresh project drawer and open duplicate
+       { osascript -e 'tell application "SystemEvents" to activate' \
+                   -e 'tell application "TextMate" to activate'
+         open -a TextMate "$new_name"; } &amp;&gt;/dev/null &amp;
+
+    fi
+}</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Duplicate File</string>
+	<key>output</key>
+	<string>openAsNewDocument</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>9B3A8B6F-D932-4E3E-8CB7-924953F65FCB</string>
+</dict>
+</plist>

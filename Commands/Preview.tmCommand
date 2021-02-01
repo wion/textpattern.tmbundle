@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>cat &lt;&lt;END_HEAD_HTML
+&lt;html&gt;&lt;head&gt;
+	&lt;title&gt;Quick Access&lt;/title&gt;
+	&lt;style type="text/css" media="screen"&gt;
+	/* &lt;![CDATA[ */
+		* {list-style-type: none;
+			}
+		body {background-color: #CDC788;
+		 	  border: 1px solid #888;
+			padding: 20px;
+			}
+			.local, .remote {padding:20px 0;}
+	/* ]]&gt; */
+	&lt;/style&gt;
+	
+&lt;/head&gt;&lt;body&gt;
+  &lt;h2&gt;Preview&lt;/h2&gt;
+  &lt;ul&gt;
+END_HEAD_HTML
+remote="
+&lt;div class="local"&gt;&lt;ul&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/index.php&gt;Preview local Frontend&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_LOCAL_URL/textpattern/index.php&gt;View local Backend&lt;/li&gt;
+ &lt;/ul&gt;&lt;/div&gt;
+&lt;div class="remote"&gt;&lt;ul&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/index.php&gt;Preview remote Frontend&lt;/li&gt;
+  &lt;li&gt;&lt;a href=http://$TM_REMOTE_URL/textpattern/index.php&gt;View remote Backend&lt;/li&gt;
+ &lt;/ul&gt;&lt;/div&gt;
+"
+echo "$remote"
+cat &lt;&lt;END_FOOT_HTML
+  &lt;/ul&gt;
+&lt;/body&gt;&lt;/html&gt;
+END_FOOT_HTML
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^O</string>
+	<key>name</key>
+	<string>Preview</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>BD4322EE-7EA6-435D-B939-CC3921976529</string>
+</dict>
+</plist>

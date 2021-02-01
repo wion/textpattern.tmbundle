@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;txp:${1:permlink}&gt;
+${2:${TM_SELECTED_TEXT:${TM_CURRENT_WORD}}}
+&lt;/txp:${1/\s.*//}&gt;</string>
+	<key>keyEquivalent</key>
+	<string>^W</string>
+	<key>name</key>
+	<string>Wrap Selection Txp (Permlink)</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>tabTrigger</key>
+	<string>permlink</string>
+	<key>uuid</key>
+	<string>76DF77F4-905C-4DFF-9BAA-F029E6DB142F</string>
+</dict>
+</plist>

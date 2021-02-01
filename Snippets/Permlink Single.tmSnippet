@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;txp:permlink /&gt;</string>
+	<key>name</key>
+	<string>Permlink Single</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>tabTrigger</key>
+	<string>permlinks</string>
+	<key>uuid</key>
+	<string>A22023FE-B393-4CB8-8089-0A135BC05676</string>
+</dict>
+</plist>

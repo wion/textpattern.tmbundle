@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#SHIFT uses the TM_REMOTE_URL variable as Base URL for this command.
+#DEFAULT is TM_LOCAL_URL and fallback is www.example.com
+#You have to set up the two Shell variables $TM_REMOTE_URL and $TM_LOCAL_URL, if you want the SHIFT modifier behavior to work.
+#If those are not set up in your prefs, then the base URL will fall back to example.com as a tab stop variable, where you can then insert an alternate base URL.
+#OPTION modifier is used to wrap the hardcoded thumbnail img with a link to the full size version, provided, that such an image exists in the target Folder.Also, you have to drag the thumbnail img in this case.
+#Also, remember: first drag the img onto the Document window, and then hold down the option key, else your Document will loose focus.
+#If you want to enable the the Transmit upload feature, then uncomment the last line by removing the hash symbol.
+base="${TM_DROPPED_FILEPATH%.*}"
+file="${TM_DROPPED_FILEPATH##/*/}"
+ext="${file#*.*}"
+img="$TM_DROPPED_FILE"
+title="${base##*/}"
+filetype=" Screenshot"
+url2="www.example.com"
+url1="${TM_BLOG_URL:-$url2}"
+url="${TM_LOCAL_URL:-$url2}"
+if [[ "$TM_MODIFIER_FLAGS" = *SHIFT* ]]
+        then BASE="$url"
+        else BASE="$url1"
+fi
+if [[ "$TM_MODIFIER_FLAGS" = *OPTION* ]]
+        then echo -n  "&lt;a href=\"http://$BASE/screenshots/${file}\" title=\"$title$filetype\"&gt;&lt;img src=\"http://$BASE/screenshots/${title}t.${ext}\" title=\"$title$filetype\" "
+        else echo -n "&lt;img src=\"http://$BASE/screenshots/$file\" title=\"$title$filetype\" class=\"clear\"
+"
+fi
+#The code, that calculates the image dimensions,taken from Allans HTML version.
+
+sips -g pixelWidth -g pixelHeight "$img"\
+|awk '/pixelWidth/  { printf("width=\"%d\" ",  $2) }
+      /pixelHeight/ { printf("height=\"%d\" ", $2) }'
+
+alt=$(tr &lt;&lt;&lt;$title '[_-]' ' '|perl -pe 's/(\w+)/\u$1/g')
+echo -n "alt=\"$title$filetype\" /&gt;
+"
+if [[ "$TM_MODIFIER_FLAGS" = *OPTION* ]]
+then echo  "&lt;/a&gt;
+&lt;p class=\"caption\"&gt;Figure $title$filetype&lt;/p&gt;"
+else echo -n 
+fi
+
+upload="${TM_SELECTED_FILES:-$TM_DROPPED_FILE_PATH}" 
+#Uncomment the below lines, for the Transmit upload feature to work.Note: Transmit needs to be set up first and configured, for this to work.
+#if [[ "$TM_MODIFIER_FLAGS" = *OPTION* ]]; 
+#	then
+#	osascript -e "tell application \"Transmit\" to open POSIX file \"$upload\"" 
+#	say `echo "Attention, uploading Original and Thumbnail  $title$filetype to  remote sceenshots directory"` &amp;
+#	else
+#	osascript -e "tell application \"Transmit\" to open POSIX file \"$TM_DROPPED_FILEPATH\""
+#	say `echo "Attention, uploading original Image  $title$filetype to  remote sceenshots directory"` &amp;
+#fi</string>
+	<key>draggedFileExtensions</key>
+	<array>
+		<string>png</string>
+	</array>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Screenshot Handler (Experimental)</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>uuid</key>
+	<string>25B308C3-DDA8-44DB-80B4-B2002DE71ABB</string>
+</dict>
+</plist>

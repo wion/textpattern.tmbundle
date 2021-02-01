@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;txp:${1:article${2:_custom}}${3: form="${4:default}"}${5: category="${6:monks}"}${7:${2/(.+)|_custom/(?1: section=)/}${2/(.+)|_custom/(?1:")/}${8:${2/(.+)|_custom/(?1:home)/}}${2/(.+)|_custom/(?1:")/}}${9:${1/article_custom|(.+)/(?1: listform=)/}${1/article_custom|(.+)/(?1:")/}${10:${1/article_custom|(.+)/(?1:default)/}}${1/article_custom|(.+)/(?1:")/}}${11:${12: offset="${13:5}"}${14: pageby="${15:10}"}${16: searchall="${17:1}"}${18: searchsticky="${19:1}"}${20: sort="${21:desc}"}${22: allowoverride="${23:0}"}${24: limit="${25:5}"}${26: author="${27:Alice}"}${28: custom_1="${29:value}"}${30: keywords="${31:kids,tigers,apples,nursery,burgers}"}${32: status="${33:live}"}${34: month="${35:`date +%Y-%m`}"}} /&gt;
+</string>
+	<key>name</key>
+	<string>Article</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>tabTrigger</key>
+	<string>art</string>
+	<key>uuid</key>
+	<string>D09D0CB4-B602-4C7F-8E61-BAD85DAD665B</string>
+</dict>
+</plist>

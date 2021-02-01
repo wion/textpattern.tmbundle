@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;txp:${1:if_section} ${2:name}="${3:value}"&gt;
+	${4:${TM_SELECTED_TEXT:${TM_CURRENT_WORD}}}
+&lt;/txp:$1&gt;
+
+
+</string>
+	<key>keyEquivalent</key>
+	<string>^W</string>
+	<key>name</key>
+	<string>Wrap Selection with if_section Tag</string>
+	<key>scope</key>
+	<string>text.html.txp</string>
+	<key>tabTrigger</key>
+	<string>if_section</string>
+	<key>uuid</key>
+	<string>DF93C027-E3DD-4E06-A907-E8501B3A0BDA</string>
+</dict>
+</plist>
