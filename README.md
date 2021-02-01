@@ -1,6 +1,6 @@
 # Textpattern.tmbundle
 
-Textpattern.tmbundle is a TextMate 2 language bundle for [Textpattern CMS](https://textpattern.com), notably for its [theme templating](https://docs.textpattern.com/build/themes-creating-using-and-sharing) language (txp, for lack of a proper name) based on Textpattern's exstensive suite of core [Tags](https://docs.textpatter.com/tags/). Theme package template files have .txp extension (in addition to the accompanying .css and .json files).
+Textpattern.tmbundle is a TextMate 2 language bundle for [Textpattern CMS](https://textpattern.com), notably for its [theme templating](https://docs.textpattern.com/build/themes-creating-using-and-sharing) language (called 'txp', for lack of a proper name) based on Textpattern's exstensive suite of core [Tags](https://docs.textpatter.com/tags/). Theme package template files have a .txp extension (in addition to the accompanying .css and .json files).
 
 # History
 
